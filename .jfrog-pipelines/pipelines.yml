@@ -5,7 +5,7 @@ resources:
       # SCM integration where the repository is located
       gitProvider: int_github
       # Repository path, including org name/repo name
-      path: {{.jfrog-pipelines.sourceRepository}}
+      path: fluxxBot/testNpm
       branches:
         # Specifies which branches will trigger dependent steps
         include: main
