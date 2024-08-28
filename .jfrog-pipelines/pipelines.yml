@@ -1,0 +1,45 @@
+#template: true   # required for local templates
+valuesFilePath: ./values.yml
+
+resources:
+  - name: npm_repo_jfp_example
+    type: GitRepo
+    configuration:
+      # SCM integration where the repository is located
+      gitProvider: int_github
+      # Repository path, including org name/repo name
+      path: fluxxBot/testNpm
+      branches:
+        # Specifies which branches will trigger dependent steps
+        include: main
+
+  - name: npm_buildinfo_jfp_example
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: int_artifactory
+
+pipelines:
+  - name: Npm_Quickstart
+    steps:
+      - name: npm_build_step
+        type: NpmBuild
+        configuration:
+          repositoryName: quickstarts-npm-virtual      # required, npm repository name on artifacctory
+          sourceLocation: .      # required, location of package.json file
+          integrations:
+            - name:  int_artifactory  # required
+          inputResources:
+            - name: npm_repo_jfp_example         # required
+
+      - name: npm_publish_step
+        type: NpmPublish
+        configuration:
+          # for payloadType npm:
+          repositoryName: quickstarts-npm-virtual        # required, npm repository name on artifactory
+          autoPublishBuildInfo: true       # optional
+          integrations:
+            - name: int_artifactory      # required
+          inputSteps:
+            - name: npm_build_step                # required
+          outputResources:
+            - name: npm_buildinfo_jfp_example                 # optional
