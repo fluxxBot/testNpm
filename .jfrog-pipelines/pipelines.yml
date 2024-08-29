@@ -13,7 +13,7 @@ resources:
   - name: npm_buildinfo_jfp_example
     type: BuildInfo
     configuration:
-      sourceArtifactory: int_artifactory
+      sourceArtifactory: rt_integration_check
 
 pipelines:
   - name: Npm_Quickstart
@@ -26,7 +26,7 @@ pipelines:
           repositoryName: quickstarts-npm-virtual      # required, npm repository name on artifacctory
           sourceLocation: .      # required, location of package.json file
           integrations:
-            - name:  int_artifactory  # required
+            - name:  rt_integration_check  # required
           inputResources:
             - name: npm_repo_jfp_example         # required
 
@@ -37,7 +37,7 @@ pipelines:
           repositoryName: quickstarts-npm-virtual        # required, npm repository name on artifactory
           autoPublishBuildInfo: true       # optional
           integrations:
-            - name: int_artifactory      # required
+            - name: rt_integration_check      # required
           inputSteps:
             - name: npm_build_step                # required
           outputResources:
