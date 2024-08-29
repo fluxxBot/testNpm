@@ -31,15 +31,15 @@ pipelines:
             - name: npm_repo_jfp_example         # required
             - name: npm_buildinfo_jfp_example
 
-      - name: npm_publish_step
-        type: NpmPublish
-        configuration:
-          # for payloadType npm:
-          repositoryName: quickstarts-npm-virtual        # required, npm repository name on artifactory
-          autoPublishBuildInfo: true       # optional
-          integrations:
-            - name: rt_integration_check      # required
-          inputSteps:
-            - name: npm_build_step                # required
-          outputResources:
-            - name: npm_buildinfo_jfp_example                 # optional
+      # - name: npm_publish_step
+      #   type: NpmPublish
+      #   configuration:
+      #     # for payloadType npm:
+      #     repositoryName: quickstarts-npm-virtual        # required, npm repository name on artifactory
+      #     autoPublishBuildInfo: true       # optional
+      #     integrations:
+      #       - name: rt_integration_check      # required
+      #     inputSteps:
+      #       - name: npm_build_step                # required
+      #     outputResources:
+      #       - name: npm_buildinfo_jfp_example                 # optional
