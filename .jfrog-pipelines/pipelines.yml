@@ -23,6 +23,7 @@ pipelines:
         configuration:
           runtime:
             type: host
+          inputResource: npm_buildinfo_jfp_example
           repositoryName: quickstarts-npm-virtual      # required, npm repository name on artifacctory
           sourceLocation: .      # required, location of package.json file
           integrations:
