@@ -29,7 +29,7 @@ steps:
   displayName: 'JFrog npm install'
   inputs:
     command: 'install'
-    artifactoryConnection: 'shivani-connect'
+    artifactoryConnection: 'kanishk-connect'
     sourceRepo: 'npm-virtual'
     # collectBuildInfo: true
     # buildName: '$(BUILD_NAME)'
