@@ -31,6 +31,7 @@ steps:
     command: 'install'
     artifactoryConnection: 'kanishk-connect'
     sourceRepo: 'npm-virtual'
+    workingFolder: 'is-number'
     # collectBuildInfo: true
     # buildName: '$(BUILD_NAME)'
     # buildNumber: '$(BUILD_NUMBER)'
